@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISO 27001:2022 Day 4 Audit Guide: Technological Controls (Core IT)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.2rem;
+        }
+        .intro {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-left: 5px solid #3498db;
+            margin-bottom: 30px;
+            border-radius: 0 5px 5px 0;
+        }
+        .section {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        h3 {
+            color: #3498db;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        .table-container {
+            overflow-x: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+            text-align: left;
+            padding: 12px;
+            position: sticky;
+            top: 0;
+        }
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ddd;
+            vertical-align: top;
+        }
+        tr:nth-child(even) {
+            background-color: #f5f5f5;
+        }
+        tr:hover {
+            background-color: #e8f4fc;
+        }
+        ul, ol {
+            padding-left: 20px;
+            margin: 0 0 15px 0;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        .tech-control-section {
+            background-color: #fff;
+            border-left: 5px solid #2980b9;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 0 5px 5px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .tech-control-section.optional {
+            border-left-color: #7f8c8d;
+            background-color: #f9f9f9;
+        }
+        .tech-control-id {
+            background-color: #2980b9;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-weight: bold;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .tech-control-id.optional {
+            background-color: #7f8c8d;
+        }
+        .question-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .question-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        .question-list li:last-child {
+            border-bottom: none;
+        }
+        .tips-section {
+            background-color: #eafaf1;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+        .tips-section h2 {
+            color: #27ae60;
+            border-bottom-color: #27ae60;
+        }
+        .tips-section ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .tips-section li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 15px;
+        }
+        .tips-section li:before {
+            content: "✓";
+            color: #27ae60;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        .controls-group {
+            margin-bottom: 30px;
+        }
+        .controls-group h2 {
+            margin-bottom: 20px;
+        }
+        .optional-label {
+            background-color: #7f8c8d;
+            color: white;
+            font-size: 0.8rem;
+            padding: 3px 8px;
+            border-radius: 3px;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            header {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .section, .intro, .tech-control-section {
+                padding: 15px;
+            }
+            th, td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Day 4: Technological Controls (Core IT)</h1>
+    </header>
+
+    <div class="intro">
+        <p>This guide provides a comprehensive set of questions and a structured approach for Day 4 of your ISO 27001:2022 internal audit. Today's focus is on assessing core IT security controls.</p>
+        <p><strong>Controls Covered:</strong> A.8.1–A.8.20 (15 controls prioritized, with flexibility to expand).</p>
+        <p><strong>Attendees:</strong> IT team, system administrators, ISMS owner.</p>
+    </div>
+
+    <div class="section">
+        <div class="controls-group">
+            <h2>Core Technological Controls (A.8)</h2>
+            
+            <div class="tech-control-section">
+                <h3><span class="tech-control-id">A.8.1</span> User Endpoint Devices</h3>
+                <ul class="question-list">
+                    <li>Are user endpoint devices (e.g., laptops, phones) secured with encryption and anti-malware?</li>
+                    <li>How are security policies enforced on these devices (e.g., MDM)?</li>
+                    <li>Can you show me a sample device configuration or compliance report?</li>
+                    <li>Are personal devices (BYOD) allowed, and if so, how are they secured?</li>
+                    <li>How are endpoint security violations detected and addressed?</li>
+                </ul>
+            </div>
+            
+            <div class="tech-control-section">
+                <h3><span class="tech-control-id">A.8.2</span> Privileged Access Rights</h3>
+                <ul class="question-list">
+                    <li>Who has privileged access to systems, and how is it assigned?</li>
+                    <li>Are privileged activities logged and reviewed regularly?</li>
+                    <li>Can I see a list of privileged users and a sample log of their actions?</li>
+                    <li>How often are privileged rights reviewed, and by whom?</li>
+                    <li>Is there evidence of unauthorized privilege use being caught?</li>
+                </ul>
+            </div>
+            
+            <div class="tech-control-section">
+                <h3><span class="tech-control-id">A.8.3</span> Information Access Restriction</h3>
+                <ul class="question-list">
+                    <li>How is access to information restricted based on business needs (e.g., role-based)?</li>
+                    <li>Are access controls applied consistently across systems?</li>
+                    <li>Can you provide the access control policy and a sample permissions list?</li>
+                    <li>How are access violations detected and corrected?</li>
+                    <li>Is there a process for handling access exceptions?</li>
+                </ul>
+            </div>
+            
+            <div class="tech-control-section">
+                <h3><span class="tech-control-id">A.8.4</span> Access to Source Code</h3>
+                <ul class="question-list">
+                    <li>Where is source code stored, and who has access to it?</li>
+                    <li>Are changes to source code logged and approved?</li>
+                    <li>Can I see the repository access controls and a change log?</li>
+                    <li>How is unauthorized access to code prevented?</li>
+                    <li>Are developers trained on secure code access practices?</li>
+                </ul>
+            </div>
+            
+            <div class="tech-control-section">
+                <h3><span class="tech-control-id">A.8.5</span> Secure Authentication</h3>
+                <ul class="question-list">
+                    <li>Is multi-factor authentication (MFA) or strong passwords enforced for system access?</li>
+                    <li>How are authentication credentials (e.g., passwords) stored and protected?</li>
+                    <li>Can you show me authentication settings or an MFA deployment report?</li>
+                    <li>Are weak authentication methods (e.g., SMS) avoided?</li>
+                    <li>How are failed authentication attempts monitored?</li>
+                </ul>
+            </div>
+            
+            <div class="tech-control-section">
+                <h3><span class="tech-control-id">A.8.6</span> Capacity Management</h3>
+                <ul class="question-list">
+                    <li>How is system capacity monitored to ensure security and availability?</li>
+                    <li>Are there alerts for capacity overloads or performance issues?</li>
+                    <li>Can I see capacity monitoring tools or a recent capacity report?</li>
+                    <li>Who is responsible for capacity planning, and how is it documented?</li>
+                    <li>Are capacity-related security risks (e.g., DoS) addressed?</li>
+                </ul>
+            </div>
+            
+            <div class="tech-control-section">
+                <h3><span class="tech-control-id">A.8.7</span> Protection Against Malware</h3>
+                <ul class="question-list">
+                    <li>What anti-malware tools are deployed across systems and endpoints?</li>
+                    <li>How often are malware definitions updated and scans performed?</li>
+                    <li>Can you provide a recent malware scan result or update log?</li>
+                    <li>Are malware incidents tracked and resolved?</li>
+                    <li>How are staff trained to recognize and report malware?</li>
+                </ul>
+            </div>
+            
+            <div class="tech-control-section">
+                <h3><span class="tech-control-id">A.8.8</span> Management of Technical Vulnerabilities</h3>
+                <ul class="question-list">
+                    <li>How are technical vulnerabilities identified (e.g., scans, penetration tests)?</li>
+                    <li>Is there a process to prioritize and remediate vulnerabilities?</li>
+                    <li>Can I see the latest vulnerability scan report and remediation plan?</li>
+                    <li>Who oversees vulnerability management, and how often is it reviewed?</li>
+                    <li>Are critical vulnerabilities addressed within a defined timeframe?</li>
+                </ul>
+            </div>
+            
+            <div class="tech-control-section">
+                <h3><span class="tech-control-id">A.8.9</span> Configuration Management</h3>
+                <ul class="question-list">
+                    <li>Are secure configuration baselines defined for systems and devices?</li>
+                    <li>How are configurations audited for compliance?</li>
+                    <li>Can you show me a baseline config and an audit result?</li>
+                    <li>Are configuration changes tracked and approved?</li>
+                    <li>How are misconfigurations detected and corrected?</li>
+                </ul>
+            </div>
+            
+            <div class="tech-control-section">
+                <h3><span class="tech-control-id">A.8.10</span> Information Deletion</h3>
+                <ul class="question-list">
+                    <li>What process ensures sensitive data is securely deleted when no longer needed?</li>
+                    <li>Are deletion tools or methods (e.g., wiping, shredding) used?</li>
+                    <li>Can I see a deletion policy or log from a recent data removal?</li>
+                    <li>How is deletion verified to ensure no data remnants?</li>
+                    <li>Are third parties involved in deletion compliant with security standards?</li>
+                </ul>
+            </div>
+            
+            <div class="tech-control-section">
+                <h3><span class="tech-control-id">A.8.11</span> Data Masking</h3>
+                <ul class="question-list">
+                    <li>Is data masking applied to sensitive information (e.g., in test environments)?</li>
+                    <li>How is masking implemented, and what tools are used?</li>
+                    <li>Can you show me an example of masked data or a masking policy?</li>
+                    <li>Who decides when and where masking is required?</li>
+                    <li>Is masking effectiveness tested or audited?</li>
+                </ul>
+            </div>
+            
+            <div class="tech-control-section">
+                <h3><span class="tech-control-id">A.8.12</span> Data Leakage Prevention</h3>
+                <ul class="question-list">
+                    <li>What measures prevent unauthorized data exfiltration (e.g., DLP tools)?</li>
+                    <li>Are data transfers monitored for suspicious activity?</li>
+                    <li>Can I see a DLP policy or a report of blocked transfers?</li>
+                    <li>How are data leakage incidents investigated and resolved?</li>
+                    <li>Are staff aware of data leakage risks and controls?</li>
+                </ul>
+            </div>
+            
+            <div class="tech-control-section">
+                <h3><span class="tech-control-id">A.8.13</span> Information Backup</h3>
+                <ul class="question-list">
+                    <li>Are backups of critical data and systems scheduled and performed?</li>
+                    <li>How are backups stored (e.g., off-site, encrypted)?</li>
+                    <li>Can you provide a backup schedule and a recent test result?</li>
+                    <li>Are backups tested for restorability, and how often?</li>
+                    <li>Who is responsible for backup management?</li>
+                </ul>
+            </div>
+            
+            <div class="tech-control-section">
+                <h3><span class="tech-control-id">A.8.14</span> Redundancy of Information Processing Facilities</h3>
+                <ul class="question-list">
+                    <li>Are critical systems designed with redundancy (e.g., failover servers)?</li>
+                    <li>How is redundancy tested to ensure availability?</li>
+                    <li>Can I see a redundancy plan or test log?</li>
+                    <li>Are single points of failure identified and mitigated?</li>
+                    <li>Is redundancy aligned with business continuity needs?</li>
+                </ul>
+            </div>
+            
+            <div class="tech-control-section">
+                <h3><span class="tech-control-id">A.8.15</span> Logging</h3>
+                <ul class="question-list">
+                    <li>What system events (e.g., logins, changes) are logged across IT assets?</li>
+                    <li>How long are logs retained, and where are they stored?</li>
+                    <li>Can I see a sample log from a critical system?</li>
+                    <li>Are logs protected from tampering or unauthorized access?</li>
+                    <li>Who reviews logs, and how are anomalies handled?</li>
+                </ul>
+            </div>
+            
+            <div class="tech-control-section optional">
+                <h3><span class="tech-control-id optional">A.8.16</span> Monitoring Activities <span class="optional-label">If Time Permits</span></h3>
+                <ul class="question-list">
+                    <li>What tools or processes monitor system activity for anomalies?</li>
+                    <li>How are monitoring alerts prioritized and resolved?</li>
+                    <li>Can I see a monitoring dashboard or alert log?</li>
+                    <li>Are monitoring responsibilities assigned and documented?</li>
+                    <li>Is monitoring effectiveness reviewed periodically?</li>
+                </ul>
+            </div>
+            
+            <div class="tech-control-section optional">
+                <h3><span class="tech-control-id optional">A.8.20</span> Networks Security <span class="optional-label">If Time Permits</span></h3>
+                <ul class="question-list">
+                    <li>Are networks protected with firewalls, segmentation, or intrusion detection?</li>
+                    <li>How are network security measures monitored and tested?</li>
+                    <li>Can I see a network diagram and recent test results (e.g., pen test)?</li>
+                    <li>Who manages network security, and are they trained?</li>
+                    <li>Are network vulnerabilities addressed promptly?</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="tips-section">
+        <h2>Execution Tips for Day 4</h2>
+        <ul>
+            <li><strong>Time Management:</strong> Allocate ~25-30 minutes per control (15 controls ≈ 6-7 hours). Start with endpoints and access (A.8.1–A.8.5), then move to operations and networks.</li>
+            <li><strong>Evidence Focus:</strong> Collect configs, logs, and reports (recent, e.g., within 6-12 months). Request live demos if possible (e.g., MFA login).</li>
+            <li><strong>Approach:</strong> Ask technical questions with IT staff, then verify with "Can I see…?" Be prepared for hands-on system reviews.</li>
+            <li><strong>Prioritization:</strong> If time runs short, focus on A.8.1, A.8.2, A.8.7, A.8.8, and A.8.15—core operational controls. Defer A.8.16–A.8.20 to Day 5 if needed.</li>
+            <li><strong>Wrap-Up:</strong> Debrief with the IT lead (15-20 minutes) to confirm findings and preview Day 5 (Technological wrap-up and compliance).</li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>ISO 27001:2022 Internal Audit Guidance | Day 4 Audit Questions</p>
+    </footer>
+</body>
+</html>

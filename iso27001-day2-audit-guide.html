@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISO 27001:2022 Day 2 Audit Guide: People Controls and Incident Management</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.2rem;
+        }
+        .intro {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-left: 5px solid #3498db;
+            margin-bottom: 30px;
+            border-radius: 0 5px 5px 0;
+        }
+        .section {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        h3 {
+            color: #3498db;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        .table-container {
+            overflow-x: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+            text-align: left;
+            padding: 12px;
+            position: sticky;
+            top: 0;
+        }
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ddd;
+            vertical-align: top;
+        }
+        tr:nth-child(even) {
+            background-color: #f5f5f5;
+        }
+        tr:hover {
+            background-color: #e8f4fc;
+        }
+        ul, ol {
+            padding-left: 20px;
+            margin: 0 0 15px 0;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        .control-section {
+            background-color: #fff;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 0 5px 5px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .people-control-section {
+            background-color: #fff;
+            border-left: 5px solid #9b59b6;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 0 5px 5px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .incident-control-section {
+            background-color: #fff;
+            border-left: 5px solid #e74c3c;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 0 5px 5px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .control-id {
+            background-color: #3498db;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-weight: bold;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .people-control-id {
+            background-color: #9b59b6;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-weight: bold;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .incident-control-id {
+            background-color: #e74c3c;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-weight: bold;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .question-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .question-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        .question-list li:last-child {
+            border-bottom: none;
+        }
+        .tips-section {
+            background-color: #eafaf1;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+        .tips-section h2 {
+            color: #27ae60;
+            border-bottom-color: #27ae60;
+        }
+        .tips-section ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .tips-section li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 15px;
+        }
+        .tips-section li:before {
+            content: "✓";
+            color: #27ae60;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        .controls-group {
+            margin-bottom: 30px;
+        }
+        .controls-group h2 {
+            margin-bottom: 20px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            header {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .section, .intro, .people-control-section, .incident-control-section {
+                padding: 15px;
+            }
+            th, td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Day 2: People Controls and Incident Management</h1>
+    </header>
+
+    <div class="intro">
+        <p>This guide provides a comprehensive set of questions and a structured approach for Day 2 of your ISO 27001:2022 internal audit. Today's focus is on assessing human security controls and incident management processes.</p>
+        <p><strong>Controls Covered:</strong> A.6.1–A.6.8 (People, 8 controls) + A.5.24–A.5.28 (Organizational, 5 controls).</p>
+        <p><strong>Attendees:</strong> HR staff, random employees (for awareness checks), incident response team, ISMS owner.</p>
+    </div>
+
+    <div class="section">
+        <div class="controls-group">
+            <h2>People Controls (A.6)</h2>
+            
+            <div class="people-control-section">
+                <h3><span class="people-control-id">A.6.1</span> Screening</h3>
+                <ul class="question-list">
+                    <li>What background checks are performed for new employees and contractors (e.g., criminal, references)?</li>
+                    <li>Are screening requirements consistent across roles, or do they vary by sensitivity?</li>
+                    <li>Can you show me a sample screening record (anonymized) and the screening policy?</li>
+                    <li>How are third-party screenings (e.g., agency hires) verified?</li>
+                    <li>Is there evidence of screening completion before access is granted?</li>
+                </ul>
+            </div>
+            
+            <div class="people-control-section">
+                <h3><span class="people-control-id">A.6.2</span> Terms and Conditions of Employment</h3>
+                <ul class="question-list">
+                    <li>Do employment contracts include information security responsibilities?</li>
+                    <li>How are these responsibilities communicated to employees at onboarding?</li>
+                    <li>Can I see a sample contract or onboarding document with security clauses?</li>
+                    <li>Are contractors and temporary staff bound by similar terms?</li>
+                    <li>Is there evidence that staff acknowledge these terms (e.g., signed agreements)?</li>
+                </ul>
+            </div>
+            
+            <div class="people-control-section">
+                <h3><span class="people-control-id">A.6.3</span> Information Security Awareness, Education, and Training</h3>
+                <ul class="question-list">
+                    <li>What security awareness training is provided to employees (e.g., phishing, policies)?</li>
+                    <li>How frequently is training conducted, and is it mandatory for all staff?</li>
+                    <li>Can you provide training materials and attendance records from the last session?</li>
+                    <li>How do you measure training effectiveness (e.g., quizzes, feedback)?</li>
+                    <li>Are new hires trained before accessing sensitive systems?</li>
+                </ul>
+            </div>
+            
+            <div class="people-control-section">
+                <h3><span class="people-control-id">A.6.4</span> Disciplinary Process</h3>
+                <ul class="question-list">
+                    <li>Is there a formal disciplinary process for security policy violations?</li>
+                    <li>How is it documented and communicated to staff?</li>
+                    <li>Can I see the disciplinary policy and an anonymized example of its application?</li>
+                    <li>Who is responsible for enforcing disciplinary actions?</li>
+                    <li>Are violations tracked, and how are repeat offenders handled?</li>
+                </ul>
+            </div>
+            
+            <div class="people-control-section">
+                <h3><span class="people-control-id">A.6.5</span> Responsibilities After Termination or Change of Employment</h3>
+                <ul class="question-list">
+                    <li>What process ensures access rights are revoked when someone leaves or changes roles?</li>
+                    <li>Are company assets (e.g., laptops, badges) returned upon termination?</li>
+                    <li>Can you show me an exit checklist or access revocation log from a recent termination?</li>
+                    <li>How are delays in revocation prevented or addressed?</li>
+                    <li>Do security obligations (e.g., confidentiality) extend post-employment, and how are they enforced?</li>
+                </ul>
+            </div>
+            
+            <div class="people-control-section">
+                <h3><span class="people-control-id">A.6.6</span> Confidentiality or Non-Disclosure Agreements</h3>
+                <ul class="question-list">
+                    <li>Are confidentiality or NDAs required for employees and contractors?</li>
+                    <li>How are these agreements managed and enforced?</li>
+                    <li>Can I see a signed NDA template and a recent example?</li>
+                    <li>Are third parties (e.g., vendors) also bound by NDAs?</li>
+                    <li>Is there a process to address breaches of confidentiality?</li>
+                </ul>
+            </div>
+            
+            <div class="people-control-section">
+                <h3><span class="people-control-id">A.6.7</span> Remote Working</h3>
+                <ul class="question-list">
+                    <li>Are security policies defined for remote work (e.g., VPN use, device security)?</li>
+                    <li>How are remote workers trained on these policies?</li>
+                    <li>Can you provide the remote work policy and evidence of its implementation?</li>
+                    <li>How do you monitor compliance for remote devices or environments?</li>
+                    <li>Are there examples of remote work security incidents and how they were handled?</li>
+                </ul>
+            </div>
+            
+            <div class="people-control-section">
+                <h3><span class="people-control-id">A.6.8</span> Information Security Event Reporting</h3>
+                <ul class="question-list">
+                    <li>What process exists for staff to report security events or incidents?</li>
+                    <li>How are employees encouraged to report (e.g., anonymous channels)?</li>
+                    <li>Can you show me the reporting procedure and recent event reports?</li>
+                    <li>Are staff trained on what constitutes a reportable event?</li>
+                    <li>How are reported events escalated and tracked?</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="controls-group">
+            <h2>Incident Management Controls (A.5.24-A.5.28)</h2>
+            
+            <div class="incident-control-section">
+                <h3><span class="incident-control-id">A.5.24</span> Information Security Incident Management Planning and Preparation</h3>
+                <ul class="question-list">
+                    <li>Is there a documented incident response plan, and is it approved?</li>
+                    <li>How often is the plan reviewed or tested?</li>
+                    <li>Can I see the current plan and results from the last test (e.g., tabletop exercise)?</li>
+                    <li>Who is responsible for maintaining and executing the plan?</li>
+                    <li>Are roles and resources clearly defined for incident response?</li>
+                </ul>
+            </div>
+            
+            <div class="incident-control-section">
+                <h3><span class="incident-control-id">A.5.25</span> Assessment and Decision on Information Security Events</h3>
+                <ul class="question-list">
+                    <li>How are security events identified and assessed for severity?</li>
+                    <li>Who decides whether an event becomes an incident requiring action?</li>
+                    <li>Can I see a log of recent events and their assessments?</li>
+                    <li>Are there defined criteria or thresholds for escalation?</li>
+                    <li>Is there evidence of timely decision-making on events?</li>
+                </ul>
+            </div>
+            
+            <div class="incident-control-section">
+                <h3><span class="incident-control-id">A.5.26</span> Response to Information Security Incidents</h3>
+                <ul class="question-list">
+                    <li>What steps are followed when responding to a security incident?</li>
+                    <li>How are responses documented and communicated to stakeholders?</li>
+                    <li>Can you provide an incident report from the last 6 months?</li>
+                    <li>Are containment, eradication, and recovery processes defined?</li>
+                    <li>Who coordinates the response, and how are they trained?</li>
+                </ul>
+            </div>
+            
+            <div class="incident-control-section">
+                <h3><span class="incident-control-id">A.5.27</span> Learning from Information Security Incidents</h3>
+                <ul class="question-list">
+                    <li>How are lessons learned from incidents captured and shared?</li>
+                    <li>Are improvements implemented based on these lessons?</li>
+                    <li>Can I see a lessons-learned document or post-incident review?</li>
+                    <li>Who is responsible for driving improvements post-incident?</li>
+                    <li>Is there evidence that past incidents have reduced recurrence?</li>
+                </ul>
+            </div>
+            
+            <div class="incident-control-section">
+                <h3><span class="incident-control-id">A.5.28</span> Collection of Evidence</h3>
+                <ul class="question-list">
+                    <li>What process ensures evidence is collected during incidents?</li>
+                    <li>Is evidence preserved in a way that's legally admissible (e.g., chain of custody)?</li>
+                    <li>Can I see an example of evidence collected from a past incident?</li>
+                    <li>Are staff trained on evidence-handling procedures?</li>
+                    <li>How is evidence stored and protected from tampering?</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="tips-section">
+        <h2>Execution Tips for Day 2</h2>
+        <ul>
+            <li><strong>Time Management:</strong> Allocate ~30-45 minutes per control (13 controls ≈ 6.5-7 hours). Start with People controls (HR focus), then shift to incident management.</li>
+            <li><strong>Evidence Focus:</strong> Request records like training logs, NDAs, and incident reports (dated within 6-12 months). Anonymize sensitive data as needed.</li>
+            <li><strong>Approach:</strong> Use open-ended questions with HR/staff, then verify with "Can I see…?" Incident questions may need technical input—coordinate with the response team.</li>
+            <li><strong>Engagement:</strong> Test awareness by asking random staff, "What would you do if you suspect a security issue?"</li>
+            <li><strong>Wrap-Up:</strong> Debrief with the ISMS owner or incident team (15-20 minutes) to confirm findings and preview Day 3 (Physical Controls).</li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>ISO 27001:2022 Internal Audit Guidance | Day 2 Audit Questions</p>
+    </footer>
+</body>
+</html>
