@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 2: ISO 27001:2022 Audit Questionnaire (Organizational Controls)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.5;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px;
+            background-color: #f8f9fa;
+            font-size: 0.95rem;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+        .intro {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-left: 5px solid #3498db;
+            margin-bottom: 20px;
+            border-radius: 0 5px 5px 0;
+        }
+        .intro p {
+            margin: 8px 0;
+        }
+        .section {
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 8px;
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 1.4rem;
+        }
+        h3 {
+            color: #3498db;
+            margin-top: 18px;
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+        h4 {
+            color: #2c3e50;
+            margin-top: 12px;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        ul, ol {
+            padding-left: 20px;
+            margin: 8px 0;
+        }
+        li {
+            margin-bottom: 3px;
+        }
+        p {
+            margin: 8px 0;
+        }
+        .control-card {
+            background-color: #fff;
+            border-left: 5px solid #3498db;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 0 5px 5px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .control-card h3 {
+            color: #2c3e50;
+            margin-top: 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        .control-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .control-id {
+            background-color: #3498db;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        .question-block {
+            background-color: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 5px;
+            margin-top: 8px;
+            margin-bottom: 12px;
+        }
+        .question-list {
+            margin: 0;
+            padding-left: 25px;
+        }
+        .question-list li {
+            margin-bottom: 8px;
+        }
+        .schedule {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .time-slot {
+            flex: 1;
+            min-width: 200px;
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .time-slot h4 {
+            color: white;
+            margin: 0 0 5px 0;
+            font-size: 1rem;
+        }
+        .time-slot p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+        }
+        .tips {
+            background-color: #eafaf1;
+            padding: 12px 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        .tips h3 {
+            color: #27ae60;
+            margin-top: 0;
+        }
+        .tips ul {
+            margin-top: 10px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            color: #7f8c8d;
+            font-size: 0.85rem;
+        }
+        .control-group {
+            border-top: 1px dashed #ddd;
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+        .control-group h3 {
+            color: #2c3e50;
+            font-size: 1.3rem;
+        }
+        
+		/* Navigation Styles */
+		.nav-container {
+			background-color: #2c3e50;
+			margin-bottom: 15px;
+			border-radius: 5px;
+			box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+		}
+		.main-nav {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-items: center;
+			padding: 0 12px;
+		}
+		.nav-title {
+			color: white;
+			font-size: 1.1rem;
+			font-weight: bold;
+			padding: 12px 0;
+			margin: 0;
+		}
+		.nav-links {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 8px;
+			padding: 8px 0;
+		}
+		.nav-links a {
+			color: white;
+			text-decoration: none;
+			padding: 4px 8px;
+			border-radius: 3px;
+			transition: background-color 0.3s;
+			white-space: nowrap;
+            font-size: 0.9rem;
+		}
+		.nav-links a:hover {
+			background-color: #3498db;
+		}
+		.nav-links a.active {
+			background-color: #3498db;
+		}
+		.mobile-menu-btn {
+			display: none;
+			background: none;
+			border: none;
+			color: white;
+			font-size: 1.5rem;
+			cursor: pointer;
+		}
+
+		@media (max-width: 768px) {
+			.main-nav {
+				flex-direction: column;
+				align-items: flex-start;
+                padding: 0 10px;
+			}
+			.nav-header {
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			.mobile-menu-btn {
+				display: block;
+                padding: 8px 0;
+			}
+			.nav-links {
+				display: none;
+				flex-direction: column;
+				width: 100%;
+				padding: 0 0 8px 0;
+                gap: 1px;
+			}
+			.nav-links.show {
+				display: flex;
+			}
+			.nav-links a {
+				width: 100%;
+				padding: 8px;
+                font-size: 0.95rem;
+			}
+            .schedule {
+                flex-direction: column;
+            }
+            .time-slot {
+                min-width: 100%;
+            }
+		}
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Menu -->
+    <div class="nav-container">
+        <nav class="main-nav">
+            <div class="nav-header">
+                <h2 class="nav-title">ISO 27001:2022 Audit Guide</h2>
+                <button class="mobile-menu-btn">☰</button>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-item active">IA Schedule</a>
+                <a href="iso27001-day1.html" class="nav-item">Day 1: Clauses 4-10</a>
+                <a href="iso27001-day2.html" class="nav-item active">Day 2: Organizational Controls</a>
+                <a href="iso27001-day3.html" class="nav-item">Day 3: People & Physical</a>
+                <a href="iso27001-day4.html" class="nav-item">Day 4: Technological I</a>
+                <a href="iso27001-day5.html" class="nav-item">Day 5: Technological II & Wrap-Up</a>
+            </div>
+        </nav>
+    </div>
+	
+    <header>
+        <h1>Day 2: ISO 27001:2022 Audit Questionnaire (Organizational Controls)</h1>
+    </header>
+
+    <div class="intro">
+        <p><strong>Focus Area:</strong> Organizational Controls (A.5.1–A.5.23)</p>
+        <p><strong>Objective:</strong> Collaboratively assess key governance controls, including policies, roles, assets, risks, and supplier relationships, to ensure a strong ISMS foundation.</p>
+        <p><strong>Personnel Needed:</strong> ISMS owner, risk owners, procurement team, IT staff</p>
+        <p><strong>Total Questions:</strong> 58 (averaging 2-3 per control based on complexity)</p>
+    </div>
+
+    <div class="section">
+        <h2>Day 2 Schedule</h2>
+        
+        <div class="schedule">
+            <div class="time-slot">
+                <h4>9:00 AM - 12:00 PM</h4>
+                <p>A.5.1–A.5.12</p>
+                <p>Policies, Roles, Assets</p>
+            </div>
+            <div class="time-slot">
+                <h4>12:00 PM - 1:00 PM</h4>
+                <p>Lunch/Break</p>
+            </div>
+            <div class="time-slot">
+                <h4>1:00 PM - 5:00 PM</h4>
+                <p>A.5.13–A.5.23</p>
+                <p>Access, Suppliers, Cloud</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Morning Session: Policies, Roles & Assets (A.5.1–A.5.12)</h2>
+        
+        <div class="control-card">
+            <div class="control-header">
+                <h3>Policies for Information Security</h3>
+                <div class="control-id">A.5.1</div>
+            </div>
+            <div class="question-block">
+                <ol class="question-list">
+                    <li>Is there a set of information security policies in place? Can we review the latest versions together (e.g., policy documents)?</li>
+                    <li>How are these policies reviewed and updated to stay relevant? Can we look at the process or schedule (e.g., review logs)?</li>
+                    <li>Who approves the policies, and how is this tracked? Can we see the approval records (e.g., signatures, emails)?</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="control-card">
+            <div class="control-header">
+                <h3>Information Security Roles and Responsibilities</h3>
+                <div class="control-id">A.5.2</div>
+            </div>
+            <div class="question-block">
+                <ol class="question-list">
+                    <li>Are security roles and responsibilities defined for all relevant personnel? Can we go through the documentation together (e.g., org chart, job descriptions)?</li>
+                    <li>How do you ensure these roles are assigned and understood? Can we see assignment records or acknowledgment forms (e.g., signed agreements)?</li>
+                    <li>How do you verify staff are fulfilling these responsibilities? Can we discuss monitoring methods (e.g., performance reviews)?</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="control-card">
+            <div class="control-header">
+                <h3>Segregation of Duties</h3>
+                <div class="control-id">A.5.3</div>
+            </div>
+            <div class="question-block">
+                <ol class="question-list">
+                    <li>How do you ensure conflicting duties are separated to prevent fraud or errors? Can we review how this is applied in a process (e.g., who requests vs. who approves a payment or system change)?</li>
+                    <li>Are there documented roles or procedures showing segregation? Can we look at examples (e.g., process flowcharts, role descriptions)?</li>
+                    <li>How do you detect if segregation fails or is bypassed? Can we discuss the monitoring controls (e.g., system logs, exception reports)?</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="control-card">
+            <div class="control-header">
+                <h3>Management Responsibilities</h3>
+                <div class="control-id">A.5.4</div>
+            </div>
+            <div class="question-block">
+                <ol class="question-list">
+                    <li>How does management ensure security policies are followed? Can we talk about oversight practices (e.g., meeting minutes)?</li>
+                    <li>Are managers accountable for security in their areas? Can we see how this is tracked (e.g., performance reviews, accountability logs)?</li>
+                    <li>How does management address security gaps? Can we discuss recent examples (e.g., action plans)?</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="control-card">
+            <div class="control-header">
+                <h3>Contact with Authorities</h3>
+                <div class="control-id">A.5.5</div>
+            </div>
+            <div class="question-block">
+                <ol class="question-list">
+                    <li>How do you identify and maintain contact with relevant authorities? Can we review the contact list or procedure (e.g., emergency contact sheet)?</li>
+                    <li>When was this last used or tested? Can we discuss any recent examples (e.g., communication logs)?</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="control-card">
+            <div class="control-header">
+                <h3>Contact with Special Interest Groups</h3>
+                <div class="control-id">A.5.6</div>
+            </div>
+            <div class="question-block">
+                <ol class="question-list">
+                    <li>Are you involved with security forums or groups? Can we look at your participation details (e.g., membership list)?</li>
+                    <li>How do you use this information to improve security? Can we discuss some examples (e.g., meeting notes)?</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="control-card">
+            <div class="control-header">
+                <h3>Threat Intelligence</h3>
+                <div class="control-id">A.5.7</div>
+            </div>
+            <div class="question-block">
+                <ol class="question-list">
+                    <li>How do you collect and analyze threat intelligence? Can we review the process or tools you use (e.g., threat reports)?</li>
+                    <li>Can we discuss recent threat intelligence findings and how they're acted upon (e.g., action plans)?</li>
+                    <li>How do you ensure threat intelligence is current? Can we see update schedules (e.g., subscription renewals)?</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="control-card">
+            <div class="control-header">
+                <h3>Information Security in Project Management</h3>
+                <div class="control-id">A.5.8</div>
+            </div>
+            <div class="question-block">
+                <ol class="question-list">
+                    <li>How is security integrated into project management? Can we review a policy or project plan together (e.g., project checklist)?</li>
+                    <li>Can we discuss a recent project where security was applied (e.g., project documentation)?</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="control-card">
+            <div class="control-header">
+                <h3>Inventory of Information and Other Associated Assets</h3>
+                <div class="control-id">A.5.9</div>
+            </div>
+            <div class="question-block">
+                <ol class="question-list">
+                    <li>Is there an up-to-date inventory of assets like data and hardware? Can we go through it (e.g., asset register)?</li>
+                    <li>How are assets identified and tracked? Can we discuss the process (e.g., tracking system)?</li>
+                    <li>How do you verify the inventory's accuracy? Can we see verification records (e.g., audit reports)?</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="control-card">
+            <div class="control-header">
+                <h3>Acceptable Use of Information and Other Associated Assets</h3>
+                <div class="control-id">A.5.10</div>
+            </div>
+            <div class="question-block">
+                <ol class="question-list">
+                    <li>Are there rules for acceptable use of assets? Can we review the policy together (e.g., AUP document)?</li>
+                    <li>How are these rules communicated to staff? Can we talk about your approach (e.g., training records)?</li>
+                    <li>How do you enforce these rules? Can we see enforcement examples (e.g., violation logs)?</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="control-card">
+            <div class="control-header">
+                <h3>Return of Assets</h3>
+                <div class="control-id">A.5.11</div>
+            </div>
+            <div class="question-block">
+                <ol class="question-list">
+                    <li>How do you ensure assets are returned when personnel leave? Can we review the process (e.g., exit checklist)?</li>
+                    <li>Are there records of asset returns? Can we look at some examples (e.g., return forms)?</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="control-card">
+            <div class="control-header">
+                <h3>Classification of Information</h3>
+                <div class="control-id">A.5.12</div>
+            </div>
+            <div class="question-block">
+                <ol class="question-list">
+                    <li>How is information classified (e.g., confidential, public)? Can we see the classification policy (e.g., classification guide)?</li>
+                    <li>Can we discuss examples of classified information in use (e.g., labeled documents)?</li>
+                    <li>How do you ensure classification is consistent? Can we review training or checks (e.g., staff training records)?</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Afternoon Session: Access, Suppliers & Cloud (A.5.13–A.5.23)</h2>
+        
+        <div class="control-card">
+            <div class="control-header">
+                <h3>Labelling of Information</h3>
+                <div class="control-id">A.5.13</div>
+            </div>
+            <div class="question-block">
+                <ol class="question-list">
+                    <li>How is information labeled based on its classification? Can we review the labeling procedure (e.g., labeling guidelines)?</li>
+                    <li>Can we look at some labeled examples, like files or emails (e.g., sample emails)?</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="control-card">
+            <div class="control-header">
+                <h3>Information Transfer</h3>
+                <div class="control-id">A.5.14</div>
+            </div>
+            <div class="question-block">
+                <ol class="question-list">
+                    <li>Are there rules for transferring information internally and externally? Can we review the policy (e.g., transfer procedure)?</li>
+                    <li>How are these rules enforced? Can we discuss how transfers are managed (e.g., transfer logs)?</li>
+                    <li>How do you handle transfer violations? Can we see examples (e.g., incident reports)?</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="control-card">
+            <div class="control-header">
+                <h3>Access Control</h3>
+                <div class="control-id">A.5.15</div>
+            </div>
+            <div class="question-block">
+                <ol class="question-list">
+                    <li>Is there an access control policy? Can we review it together (e.g., access policy document)?</li>
+                    <li>How do you ensure access is granted based on business needs? Can we discuss the process (e.g., access request forms)?</li>
+                    <li>How are access controls monitored? Can we see monitoring methods (e.g., access logs)?</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="control-card">
+            <div class="control-header">
+                <h3>Identity Management</h3>
+                <div class="control-id">A.5.16</div>
+            </div>
+            <div class="question-block">
+                <ol class="question-list">
+                    <li>How are user identities managed, including creation and modification? Can we go over the process (e.g., identity management system)?</li>
+                    <li>Can we discuss recent identity management activities you've handled (e.g., user creation logs)?</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="control-card">
+            <div class="control-header">
+                <h3>Authentication Information</h3>
+                <div class="control-id">A.5.17</div>
+            </div>
+            <div class="question-block">
+                <ol class="question-list">
+                    <li>How is authentication information, like passwords, allocated and protected? Can we review the policy (e.g., password policy)?</li>
+                    <li>Are there controls to prevent reuse or sharing? Can we talk about how this works (e.g., system settings)?</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="control-card">
+            <div class="control-header">
+                <h3>Access Rights</h3>
+                <div class="control-id">A.5.18</div>
+            </div>
+            <div class="question-block">
+                <ol class="question-list">
+                    <li>How are access rights assigned, reviewed, and revoked? Can we review the procedure (e.g., access review process)?</li>
+                    <li>Can we discuss recent access rights reviews you've conducted (e.g., review reports)?</li>
+                    <li>How do you ensure timely revocation? Can we see examples (e.g., termination logs)?</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="control-card">
+            <div class="control-header">
+                <h3>Information Security in Supplier Relationships</h3>
+                <div class="control-id">A.5.19</div>
+            </div>
+            <div class="question-block">
+                <ol class="question-list">
+                    <li>How do you address security in supplier relationships? Can we look at a sample agreement (e.g., supplier contract)?</li>
+                    <li>Are supplier security requirements defined? Can we review them together (e.g., requirement list)?</li>
+                    <li>How do you ensure suppliers meet these requirements? Can we discuss your approach (e.g., supplier audits)?</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="control-card">
+            <div class="control-header">
+                <h3>Addressing Information Security Within Supplier Agreements</h3>
+                <div class="control-id">A.5.20</div>
+            </div>
+            <div class="question-block">
+                <ol class="question-list">
+                    <li>Do supplier agreements include specific security clauses? Can we review some examples (e.g., contract clauses)?</li>
+                    <li>How do you verify supplier compliance with these clauses? Can we discuss your monitoring approach (e.g., audit reports)?</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="control-card">
+            <div class="control-header">
+                <h3>Managing Information Security in the ICT Supply Chain</h3>
+                <div class="control-id">A.5.21</div>
+            </div>
+            <div class="question-block">
+                <ol class="question-list">
+                    <li>How do you manage security risks in the ICT supply chain? Can we go over the process (e.g., supply chain risk plan)?</li>
+                    <li>Can we discuss how you check supply chain security (e.g., supplier assessments)?</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="control-card">
+            <div class="control-header">
+                <h3>Monitoring, Review, and Change Management of Supplier Services</h3>
+                <div class="control-id">A.5.22</div>
+            </div>
+            <div class="question-block">
+                <ol class="question-list">
+                    <li>How do you monitor supplier security performance? Can we review your monitoring methods (e.g., performance reports)?</li>
+                    <li>How are changes to supplier services managed? Can we talk about recent changes (e.g., change logs)?</li>
+                    <li>How do you ensure security during supplier changes? Can we see examples (e.g., risk assessments)?</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="control-card">
+            <div class="control-header">
+                <h3>Information Security for Use of Cloud Services</h3>
+                <div class="control-id">A.5.23</div>
+            </div>
+            <div class="question-block">
+                <ol class="question-list">
+                    <li>How do you ensure security when using cloud services? Can we review the policy or risk assessment (e.g., cloud security policy)?</li>
+                    <li>Can we discuss the cloud security controls you've implemented (e.g., cloud configs)?</li>
+                    <li>How do you monitor cloud service security? Can we see monitoring methods (e.g., dashboards)?</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Execution Plan for Day 2</h2>
+        <ul>
+            <li><strong>9:00 AM - 12:00 PM (A.5.1–A.5.12):</strong> Start with the ISMS owner and IT staff to discuss policies, roles, and asset management. Review practical examples (e.g., org charts, asset registers) collaboratively, focusing on governance foundations.</li>
+            <li><strong>1:00 PM - 5:00 PM (A.5.13–A.5.23):</strong> Transition to risk owners and procurement team to cover access controls, supplier relationships, and cloud security. Discuss processes and review tangible outputs (e.g., contracts, logs) together, noting any gaps.</li>
+        </ul>
+        
+        <div class="tips">
+            <h3>Tips for Day 2</h3>
+            <ul>
+                <li><strong>Time Management:</strong> Target ~8-10 mins per question (58 questions = ~8 hours with breaks). Adjust pacing as needed.</li>
+                <li><strong>Collaboration:</strong> Use "Can we review together?" to keep the client engaged and informed.</li>
+                <li><strong>Personnel Coordination:</strong> Schedule risk and procurement teams for the afternoon to align with supplier-focused controls.</li>
+                <li><strong>Flexibility:</strong> Reserve 30-60 mins for deeper dives (e.g., supplier contracts) if discussions run long.</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>ISO 27001:2022 Internal Audit Guide | Day 2: Organizational Controls | Last Updated: April 10, 2025</p>
+    </footer>
+	
+    <!-- Navigation Script -->
+    <script>
+        // Set active link based on current page
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = window.location.href.split('/').pop();
+            const navItems = document.querySelectorAll('.nav-links a');
+            
+            navItems.forEach(link => {
+                const linkHref = link.getAttribute('href');
+                if (currentPage === linkHref || 
+                    (currentPage === '' && linkHref === 'index.html')) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Mobile menu toggle
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinksContainer = document.querySelector('.nav-links');
+            
+            menuBtn.addEventListener('click', function() {
+                navLinksContainer.classList.toggle('show');
+            });
+        });
+    </script>
+</body>
+</html>
